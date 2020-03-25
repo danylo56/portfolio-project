@@ -11,7 +11,9 @@ class Blog(models.Model):
         return self.title
 
     def summary(self):
-        return self.body[:100]
+        list_words = self.body.split()
+        text = " ".join(list_words[:10]) + '...'
+        return text
 
     def pub_date_pretty(self):
         return self.pub_date.strftime('%b %e %Y')
